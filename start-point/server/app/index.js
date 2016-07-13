@@ -2,7 +2,6 @@
 // var chalk = require('chalk')
 var app = require('express')();
 var session = require('express-session');
-
 var path = require('path');
 
 // app.use(require('body-parser').json())
@@ -14,6 +13,7 @@ app.use(require('./statics.middleware'));
 
 //session middleware
 app.use(require('./sessions.middleware'));
+
 
 
 app.use('/api', require('../api/api.router'));
