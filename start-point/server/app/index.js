@@ -24,6 +24,11 @@ var validFrontendRoutes = ['/', '/stories', '/users', '/stories/:id', '/users/:i
 var indexPath = path.join(__dirname, '..', '..', 'public', 'index.html');
 validFrontendRoutes.forEach(function (stateRoute) {
   app.get(stateRoute, function (req, res) {
+    if (req.user){
+      req.session.userId = req.user.id
+
+      console.log(require('chalk').red('google!!!!'), req.user)
+    }
     res.sendFile(indexPath);
   });
 });
