@@ -7,7 +7,7 @@ var User = require('../api/users/user.model.js')
 
 router.use(session({
 
-  secret: 'superSecretPassword1'
+  secret: 'YZ-CiCsSbIiA25sK-arXI_Om'
 
 }));
 
