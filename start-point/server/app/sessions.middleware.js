@@ -11,6 +11,19 @@ router.use(session({
 
 }));
 
+router.get('/auth/me', function(req, res, next) {
+  User.findOne({
+    where: {
+      id: req.session.userId
+    }
+  })
+  .then(function (user) {
+    console.log('requested auth/me')
+    res.send(user)
+  })
+  .catch(next)
+})
+
 router.use('/api', function (req, res, next){
 
   if (!req.session.counter) req.session.counter = 0;
@@ -30,7 +43,7 @@ router.post('/login', function (req, res, next){
   .then(function (user){
     console.log('found the user', req.session, req.body, chalk.blue('user \n'), user)
     req.session.userId = user.id;
-    res.send(200)
+    res.send(user)
   })
   .catch(next)
 
@@ -42,7 +55,7 @@ router.post('/signup', function(req,res,next){
   .then(function (user){
     req.session.userId = user.id
     console.log(chalk.green('user created'))
-    res.send(200)
+    res.send(user)
   })
   .catch(next)
 })

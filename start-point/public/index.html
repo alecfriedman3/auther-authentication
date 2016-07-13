@@ -45,13 +45,14 @@
   <script src="/browser/app/user/item/user.item.directive.js"></script>
   <script src="/browser/app/user/detail/user.detail.state.js"></script>
   <script src="/browser/app/user/detail/user.detail.controller.js"></script>
+  <script src="/browser/app/user/auth.controller.js"></script>
   <script src="/browser/app/story/list/story.list.state.js"></script>
   <script src="/browser/app/story/list/story.list.controller.js"></script>
   <script src="/browser/app/story/detail/story.detail.controller.js"></script>
   <script src="/browser/app/story/detail/story.detail.state.js"></script>
   <script src="/browser/app/story/story.factory.js"></script>
 </head>
-<body ng-app="auther">
+<body ng-app="auther" ng-controller = 'getMe'>
   <navbar></navbar>
   <ui-view></ui-view>
   <footer></footer>

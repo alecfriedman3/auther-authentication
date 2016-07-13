@@ -23,11 +23,12 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li ui-sref-active="active">
+        <li ui-sref-active="active"  ng-show = "!user">
           <a ui-sref="signup">signup</a>
         </li>
-        <li ui-sref-active="active">
-          <a ui-sref="login">login</a>
+        <li ng-show = "user"><a> Welcome {{ user.name }} ! </a></li>
+        <li ui-sref-active="active"  ng-show = "!user">
+          <a ui-sref="login" >login</a>
         </li>
         <li>
           <button class="navbar-btn btn btn-default" ng-click="logout()">logout</button>

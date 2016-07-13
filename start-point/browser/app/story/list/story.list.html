@@ -37,11 +37,16 @@
           <span>by</span>
         </li>
         <li>
-          <select
+          <select ng-show = "user.isAdmin"
             ng-options="user.id as user.name for user in users"
             ng-model="newStory.author_id"
             required>
             <option value='' disabled>(select an author)</option>
+          </select>
+          <select ng-hide = "user.isAdmin"
+            ng-model="newStory.author_id"
+            required>
+            <option selected value='{{user.id}}'>{{ user.name }}</option>
           </select>
         </li>
       </ul>
